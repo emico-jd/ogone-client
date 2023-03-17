@@ -301,12 +301,12 @@ class Request implements \ArrayAccess
     /**
      * Implementation of \ArrayAccess::offsetSet()
      *
-     * @param string $offset
+     * @param mixed $offset
      * @param mixed $value
      * @return void
      * @link http://www.php.net/manual/en/arrayaccess.offsetset.php
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet(mixed $offset, mixed $value): void
     {
         if (is_null($offset)) {
             $this->data[] = $value;
@@ -318,11 +318,11 @@ class Request implements \ArrayAccess
     /**
      * Implementation of \ArrayAccess::offsetExists()
      *
-     * @param string $offset
+     * @param mixed $offset
      * @return bool
      * @link http://www.php.net/manual/en/arrayaccess.offsetexists.php
      */
-    public function offsetExists($offset)
+    public function offsetExists(mixed $offset): bool
     {
         return isset($this->data[$offset]);
     }
@@ -330,11 +330,11 @@ class Request implements \ArrayAccess
     /**
      * Implementation of \ArrayAccess::offsetUnset()
      *
-     * @param string $offset
+     * @param mixed $offset
      * @return void
      * @link http://www.php.net/manual/en/arrayaccess.offsetunset.php
      */
-    public function offsetUnset($offset)
+    public function offsetUnset(mixed $offset): void
     {
         unset($this->data[$offset]);
     }
@@ -342,11 +342,11 @@ class Request implements \ArrayAccess
     /**
      * Implementation of \ArrayAccess::offsetGet()
      *
-     * @param string $offset
+     * @param mixed $offset
      * @return mixed
      * @link http://www.php.net/manual/en/arrayaccess.offsetget.php
      */
-    public function offsetGet($offset)
+    public function offsetGet(mixed $offset): mixed
     {
         return isset($this->data[$offset]) ? $this->data[$offset] : null;
     }
